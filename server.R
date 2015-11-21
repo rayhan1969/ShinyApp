@@ -4,8 +4,7 @@ library(shiny)
 library(UsingR)
 library(RCurl)
 #code outside gets run only once outside of function
-ERP <- getURL("https://archive.ics.uci.edu/ml/machine-learning-databases/cpu-performance/machine.data")
-CompHardware <- read.csv(text = ERP, header=F)
+CompHardware <- read.csv(file = 'data.csv', header=F)
 names(CompHardware) <- c("VendorName", "ModelName", "MYCT", "MMIN", "MMAX", "CACH", "CHMIN", "CHMAX",
                          "PRP", "ERP")
 FittedModel <- train(ERP ~ VendorName+ MYCT + MMIN + MMAX + CACH + CHMIN + CHMAX + PRP
